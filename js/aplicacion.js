@@ -144,7 +144,8 @@ Aplicacion.prototype.dibujarCiudades = function() {
     this.cargarOpcionDefault("filtro-ciudad", "Ciudad");
     this.cargarOpcionTodos("filtro-ciudad");
 
-    this.listado.obtC().forEach(function(ciudad) {
+    //this.listado.obt().forEach(function(ciudad) {// CODIGO ORIGINAL
+    this.listado.obtenerUbicacion().forEach(function(ciudad){
         var nuevaOpcion = $("<option/>").text(ciudad).val(ciudad);
         nuevaOpcion.appendTo("#filtro-ciudad");
     });
@@ -155,21 +156,22 @@ Aplicacion.prototype.dibujarRubros = function() {
     $("#filtro-rubro").empty();
     this.cargarOpcionDefault("filtro-rubro", "Rubro");
     this.cargarOpcionTodos("filtro-rubro")
-
-    this.listado.obtR().forEach(function(rubro) {
+    //this.listado.obtR().forEach(function(rubro) { CODIGO ORIGINAL
+    this.listado.obtenerRubro().forEach(function(rubro)){
         var nuevaOpcion = $("<option/>").text(rubro).val(rubro);
         nuevaOpcion.appendTo("#filtro-rubro");
     });
 
 }
 
+
 //Esta función se encarga de generar las opciones del filtro de horarios.
 Aplicacion.prototype.dibujarHorarios = function() {
     $("#filtro-horario").empty();
     this.cargarOpcionDefault("filtro-horario", "Horario");
     this.cargarOpcionTodos("filtro-horario")
-
-    this.listado.obtH().forEach(function(horario) {
+    //this.listado.obtH().forEach(function(horario) { CODIGO ORIGINAL
+    this.listado.obtenerHorario().forEach(function(horario){
         var nuevaOpcion = $("<option/>").text(horario).val(horario);
         nuevaOpcion.appendTo("#filtro-horario");
     });

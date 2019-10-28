@@ -16,6 +16,7 @@ Listado.prototype.calificarRestaurant = function(id, calificacion) {
     restaurant.calificar(calificacion);
 }
 
+//Ignacio//4)Funcion a verificar
 //Dado un id, busca el objeto del listado que tiene ese id
 Listado.prototype.buscarRestaurante = function(id) {
     for (var i = 0; i < this.restaurantes.length; i++) {
@@ -26,24 +27,26 @@ Listado.prototype.buscarRestaurante = function(id) {
     return "No se ha encontrado ningún restaurant";
 }
 
-//Obtiene todas las ciudades de los restaurantes sin repetidos
-Listado.prototype.obtC = function() {
+//IGNACIO//5)FUNCION A VERIFICAR. de obtU pasamos a obtenerUbicacion.
+//Obtiene todas las ciudades de los restaurantes sin repetidos. 
+Listado.prototype.obtenerUbicacion = function() {
     //Array donde se van a ir agregando las ciudades (van a estar repetidas)
-    var c = [];
+    var ciudades = [];
     //Se recorre el array de restaurantes y se va agregando al array creado, todas las ubicaciones o ciudades encontradas
     for (var i = 0; i < this.restaurantes.length; i++) {
         c.push(this.restaurantes[i].ubicacion);
     }
     //Se crea un nuevo array donde se van a agregar las ciudades pero sin repetirse
     var c2 = c.filter(function(elem, index, self) {
-        return index === self.indexOf(elem);
+        return index === sself.indexOf(elem);
     });
 
     return c2.sort();
 }
 
+//IGNACIO//(6)FUNCION A VERIFICAR. de ObtR pasamos a obtenerRubro
 //Obtiene todos los rubros de los restaurantes sin repetidos. Su funcionamiento es similar a obtC()
-Listado.prototype.obtR = function() {
+Listado.prototype.obtenerRubro = function() {
     var r = [];
     for (var i = 0; i < this.restaurantes.length; i++) {
         r.push(this.restaurantes[i].rubro);
@@ -56,10 +59,11 @@ Listado.prototype.obtR = function() {
     return r2.sort();
 }
 
+//IGNACIO//(7)FUNCION A VERIFICAR. de obtH pasamos a obtenerHorario
 //Obtiene todos los horarios de los restaurantes (sin repetidos). Está funcionalidad es un poco más compleja ya que un restaurante
 //tiene un array de horarios. Al buscarlos todos vamos a pasar a tener un array de arrays que luego vamos a tener que 
 //convertir en uno solo
-Listado.prototype.obtH = function() {
+Listado.prototype.obtenerHorario = function() {
     //En este array se van a cargar los arrays de horarios, que luego vamos convertir en un solo array
     var arregloH = [];
     //Recorremos el array de restaurantes y vamos agregando todos los array de horarios
@@ -83,6 +87,7 @@ Listado.prototype.obtH = function() {
     return h2.sort();
 }
 
+//IGNACIO//(8)FUNCION A VERIFICAR
 //Función que recibe los filtros que llegan desde el HTML y filtra el arreglo de restaurantes.
 //Solo se filtra si el valor recibido es distinto de null.
 Listado.prototype.obtenerRestaurantes = function(filtroRubro, filtroCiudad, filtroHorario) {
@@ -119,7 +124,7 @@ var listadoDeRestaurantes = [
     new Restaurant(10, "New London Cafe", "Desayuno", "Londres", ["12:00", "13:00", "14:30"], "../img/desayuno3.jpg", [9, 4, 6, 5, 6]),
     new Restaurant(11, "Frogburguer", "Hamburguesa", "París", ["12:00", "15:00", "17:30"], "../img/hamburguesa1.jpg", [9, 8, 5, 2, 9]),
     new Restaurant(12, "Just Salad", "Ensalada", "Nueva York", ["12:00", "15:00", "17:30"], "../img/ensalada3.jpg", [8, 1, 4, 5, 5, 7]),
-    new Restaurant(13, "The Counter", "Hamburguesa", "Nueva York", ["17:00", "18:00", "19:30"], "../img/hamburguesa2.jpg", [6, 9, 7, 6, 7, ]),
+    new Restaurant(13, "The Counter", "Hamburguesa", "Nueva York", ["17:00", "18:00", "19:30"], "../img/hamburguesa2.jpg", [6, 9, 7, 6, 7, 4]),
     new Restaurant(14, "TGood Seed Salads & Market", "Ensalada", "Nueva York", ["17:00", "19:00", "22:30"], "../img/ensalada4.jpg", [8, 8, 8, 8, 5, 7]),
     new Restaurant(15, "Carmine's", "Pasta", "Nueva York", ["14:30", "16:30", "19:00"], "../img/pasta1.jpg", [9, 8, 5, 5, 9]),
     new Restaurant(16, "Pastasciutta", "Pasta", "Roma", ["14:30", "15:30", "19:00"], "../img/pasta3.jpg", [4, 9, 10, 9, 4, 6]),
