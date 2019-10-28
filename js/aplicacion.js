@@ -157,11 +157,10 @@ Aplicacion.prototype.dibujarRubros = function() {
     this.cargarOpcionDefault("filtro-rubro", "Rubro");
     this.cargarOpcionTodos("filtro-rubro")
     //this.listado.obtR().forEach(function(rubro) { CODIGO ORIGINAL
-    this.listado.obtenerRubro().forEach(function(rubro)){
+    this.listado.obtenerRubro().forEach(function(rubro){
         var nuevaOpcion = $("<option/>").text(rubro).val(rubro);
         nuevaOpcion.appendTo("#filtro-rubro");
     });
-
 }
 
 
@@ -176,6 +175,7 @@ Aplicacion.prototype.dibujarHorarios = function() {
         nuevaOpcion.appendTo("#filtro-horario");
     });
 }
+screenY
 
 //Función que crea la opción default de los filtros
 Aplicacion.prototype.cargarOpcionDefault = function(idFiltro, defecto) {

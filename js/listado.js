@@ -27,36 +27,47 @@ Listado.prototype.buscarRestaurante = function(id) {
     return "No se ha encontrado ningún restaurant";
 }
 
-//IGNACIO//5)FUNCION A VERIFICAR. de obtU pasamos a obtenerUbicacion.
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//IGNACIO // funcion para eliminar elementos repetidos en un arreglo
+function filtrarRepetidos(arreglo){
+    arreglo = arreglo.filter(function(elem, index, self) {
+        return index === self.indexOf(elem);
+    });
+    return arreglo;
+}
+
+
+//IGNACI
+//5)FUNCION A VERIFICAR. de obtU pasamos a obtenerUbicacion.
 //Obtiene todas las ciudades de los restaurantes sin repetidos. 
 Listado.prototype.obtenerUbicacion = function() {
-    //Array donde se van a ir agregando las ciudades (van a estar repetidas)
-    var ciudades = [];
-    //Se recorre el array de restaurantes y se va agregando al array creado, todas las ubicaciones o ciudades encontradas
-    for (var i = 0; i < this.restaurantes.length; i++) {
-        c.push(this.restaurantes[i].ubicacion);
-    }
-    //Se crea un nuevo array donde se van a agregar las ciudades pero sin repetirse
-    var c2 = c.filter(function(elem, index, self) {
-        return index === sself.indexOf(elem);
-    });
+    var ciudades = [];  //Array donde se van a ir agregando las ciudades (van a estar repetidas)
+    var ciudadesFiltradas =[]; //Array vacio para las ciudades filtradas
+    ciudades =listadoDeRestaurantes.ubicacion.map(ciudad => ciudad);
 
-    return c2.sort();
+
+    alert(ciudades);
+    // for (var i = 0; i < this.restaurantes.length; i++) {//Se recorre el array de restaurantes y se va agregando al array creado, todas las ubicaciones o ciudades encontradas
+    //     ciudades.push(this.restaurantes[i].ubicacion);
+    // }
+    ciudadesFiltradas = filtrarRepetidos(ciudades);
+    return ciudadesFiltradas.sort();
+    
 }
 
 //IGNACIO//(6)FUNCION A VERIFICAR. de ObtR pasamos a obtenerRubro
 //Obtiene todos los rubros de los restaurantes sin repetidos. Su funcionamiento es similar a obtC()
 Listado.prototype.obtenerRubro = function() {
-    var r = [];
+    var rubrosOriginal = []; //Array vacio para Listado de rubros (vana a aprecer los rubros repetidos)
+    var rubrosFiltrados = []; //Array par aponer el listado de rubros pero sin repetir
     for (var i = 0; i < this.restaurantes.length; i++) {
-        r.push(this.restaurantes[i].rubro);
+        rubrosOriginal.push(this.restaurantes[i].rubro);
     }
+    rubrosFiltrados = filtrarRepetidos(rubrosOriginal);
+    return rubrosFiltrados.sort();
 
-    var r2 = r.filter(function(elem, index, self) {
-        return index === self.indexOf(elem);
-    });
-
-    return r2.sort();
+   
 }
 
 //IGNACIO//(7)FUNCION A VERIFICAR. de obtH pasamos a obtenerHorario
@@ -86,6 +97,9 @@ Listado.prototype.obtenerHorario = function() {
 
     return h2.sort();
 }
+
+
+
 
 //IGNACIO//(8)FUNCION A VERIFICAR
 //Función que recibe los filtros que llegan desde el HTML y filtra el arreglo de restaurantes.
